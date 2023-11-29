@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-image: linear-gradient(90deg, #002f52 35%, #326589);
+    margin-bottom: 200px;
   }
 
   code {
@@ -19,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   li {
-    display: flex;
     list-style: none;
   }
 `;
