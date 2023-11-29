@@ -21,8 +21,8 @@ const Options = styled.ul`
 export const OptionsHeader = () => {
   return (
     <Options>
-      {optionText.map((option) => (
-        <Option>{option}</Option>
+      {optionText.map((option, index) => (
+        <Option key={index}>{option}</Option>
       ))}
     </Options>
   );

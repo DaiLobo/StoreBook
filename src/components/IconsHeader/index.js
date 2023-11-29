@@ -18,8 +18,8 @@ const Icons = styled.ul`
 export const IconsHeader = () => {
   return (
     <Icons>
-      {icons.map((icon) => (
-        <Icon>
+      {icons.map((icon, index) => (
+        <Icon key={index}>
           <img src={icon} alt="Ícone" />
         </Icon>
       ))}
