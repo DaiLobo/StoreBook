@@ -27,6 +27,7 @@ const Result = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  margin-top: 20px;
   cursor: pointer;
   p {
     width: 200px;

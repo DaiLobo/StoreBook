@@ -25,6 +25,7 @@ export const LatestReleases = () => {
       <Title color="#eb9b00" fontSize="36px">
         Últimos lançamentos
       </Title>
+      
       <NewBookContainer>
         {livros.map((livro) => (
           <img src={livro.src} alt={livro.nome} />

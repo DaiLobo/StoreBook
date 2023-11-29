@@ -12,6 +12,7 @@ const Card = styled.div`
   padding: 25px 20px;
   justify-content: space-around;
   width: 100%;
+  margin-top: 40px;
 `;
 
 const Botao = styled.button`
@@ -47,10 +48,14 @@ const ImgLivro = styled.img`
 export const RecommendationCard = ({ title, subtitle, description, img }) => {
   return (
     <Card>
-      <div>
-        <Title fontSize="16px" color="#eb9b00" alignment="left">{title}</Title>
+      <div style={{ alignSelf: "start" }}>
+        <Title fontSize="16px" color="#eb9b00" alignment="left" padding="0px">
+          {title}
+        </Title>
         <Subtitulo>{subtitle}</Subtitulo>
         <Descricao>{description}</Descricao>
+      </div>
+      <div>
         <ImgLivro src={img} alt="livro" />
         <Botao>Saiba mais</Botao>
       </div>
