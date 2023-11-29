@@ -1,20 +1,14 @@
 import styled from "styled-components";
 import { livros } from "./databaseRealeases";
+import { Title } from "components/Title";
+import { RecommendationCard } from "components/RecommendationCard";
+import bookImg from "../../assets/livro2.png";
 
 const LatestReleasesContainer = styled.section`
   background-color: #ebecee;
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-`;
-const Title = styled.h2`
-  width: 100%;
-  padding: 30px 0;
-  background-color: #fff;
-  color: #eb9b00;
-  font-size: 36px;
-  text-align: center;
-  margin: 0;
 `;
 
 const NewBookContainer = styled.div`
@@ -28,12 +22,21 @@ const NewBookContainer = styled.div`
 export const LatestReleases = () => {
   return (
     <LatestReleasesContainer>
-      <Title>Últimos lançamentos</Title>
+      <Title color="#eb9b00" fontSize="36px">
+        Últimos lançamentos
+      </Title>
       <NewBookContainer>
         {livros.map((livro) => (
           <img src={livro.src} alt={livro.nome} />
         ))}
       </NewBookContainer>
+
+      <RecommendationCard
+        title="Talvez você se interesse por..."
+        subtitle="Angular 11"
+        description="Construindo uma aplicação integrada com a plataforma Google."
+        img={bookImg}
+      />
     </LatestReleasesContainer>
   );
 };
