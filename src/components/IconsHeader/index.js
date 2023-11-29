@@ -1,17 +1,28 @@
+import styled from "styled-components";
 import profile from "../../assets/perfil.svg";
 import basket from "../../assets/sacola.svg";
-import "./styles.css";
 
 const icons = [profile, basket];
 
+const Icon = styled.li`
+  margin-right: 40px;
+  cursor: pointer;
+  width: 25px;
+`;
+
+const Icons = styled.ul`
+  display: flex;
+  align-items: center;
+`;
+
 export const IconsHeader = () => {
   return (
-    <ul className="icones">
+    <Icons>
       {icons.map((icon) => (
-        <li className="icone">
+        <Icon>
           <img src={icon} alt="Ícone" />
-        </li>
+        </Icon>
       ))}
-    </ul>
+    </Icons>
   );
 };
