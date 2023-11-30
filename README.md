@@ -12,6 +12,10 @@ Este é um projeto em React para listar livros de uma API. Com esta aplicação,
 
 <br>
 
+<div align="center">
+  <img src="https://github.com/DaiLobo/StoreBook/assets/47689708/a198b475-a572-4548-9dff-228920cd8bce" alt="Telas">
+</div>
+
 ## :bookmark: Índice
 
 <br>
