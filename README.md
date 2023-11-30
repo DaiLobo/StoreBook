@@ -43,7 +43,7 @@ $ cd store-book
 $ yarn
 ```
 
-## 🍷 Executando o Projeto
+## 📚 Executando o Projeto
 
 ```bash
 yarn dev
