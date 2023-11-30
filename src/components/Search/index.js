@@ -1,7 +1,8 @@
 import { Input } from "components/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { addFavorite } from "services/favoritos";
+import { getBooks } from "services/livros";
 import styled from "styled-components";
-import { books } from "./database";
 
 const SearchContainer = styled.section`
   color: #fff;
@@ -41,7 +42,19 @@ const Result = styled.div`
 `;
 
 export const Search = () => {
-  const [booksSearch, setBooksSearch] = useState(books);
+  const [booksSearch, setBooksSearch] = useState([]);
+  const [books, setBooks] = useState([]);
+
+  async function fetchBooks() {
+    const bookApi = await getBooks();
+    setBooks(bookApi);
+  }
+
+  const insertFavorite = async (id) => {
+    await addFavorite(id);
+
+    alert("Livro favoritado!");
+  };
 
   const searchBook = (event) => {
     const result = books.filter((book) =>
@@ -50,18 +63,24 @@ export const Search = () => {
     setBooksSearch(result);
   };
 
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
   return (
     <SearchContainer>
       <Title>Já sabe por onde começar?</Title>
       <Subtitle>Encontre seu livro em nossa estante.</Subtitle>
-      <Input
-        placeholder="Escreva sua próxima leitura"
-        onChange={searchBook}
-      />
+
+      <Input placeholder="Escreva sua próxima leitura" onChange={searchBook} />
+
       {booksSearch.map((book) => (
-        <Result key={book.id}>
-          <p>{book.nome} </p>
-          <img src={book.src} alt={book.nome} />
+        <Result key={book.id} onClick={() => insertFavorite(book.id)}>
+          <div style={{ marginRight: "16px" }}>
+            <p>{book.nome}</p>
+            <p style={{ fontSize: "12px" }}>{book.autor}</p>
+          </div>
+          <img src={book.img} alt={book.nome} />
         </Result>
       ))}
     </SearchContainer>

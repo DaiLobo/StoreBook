@@ -1,21 +1,18 @@
 import { Header } from "components/Header";
-import { LatestReleases } from "components/LatestReleases";
-import { Search } from "components/Search";
-import styled from "styled-components";
+import { Favoritos } from "pages/Favoritos";
+import { Home } from "pages/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const AppContainer = styled.div`
-  height: 100vh;
-  background-image: linear-gradient(90deg, #002f52 35%, #326589);
-`;
-
-function App() {
+function AppRouter() {
   return (
-    <AppContainer>
+    <BrowserRouter>
       <Header />
-      <Search />
-      <LatestReleases />
-    </AppContainer>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/favoritos" element={<Favoritos />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default AppRouter;

@@ -1,6 +1,11 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const optionText = ["CATEGORIAS", "MINHA ESTANTE", "FAVORITOS"];
+const optionText = [
+  { title: "CATEGORIAS", link: "/categorias" },
+  { title: "MINHA ESTANTE", link: "/minhaestante" },
+  { title: "FAVORITOS", link: "/favoritos" },
+];
 
 const Option = styled.li`
   height: 100%;
@@ -22,7 +27,9 @@ export const OptionsHeader = () => {
   return (
     <Options>
       {optionText.map((option, index) => (
-        <Option key={index}>{option}</Option>
+        <NavLink key={index} to={option.link} end style={{ textDecoration: "none", color: "#000" }}>
+          <Option>{option.title}</Option>
+        </NavLink>
       ))}
     </Options>
   );

@@ -27,8 +27,8 @@ export const LatestReleases = () => {
       </Title>
       
       <NewBookContainer>
-        {livros.map((livro) => (
-          <img src={livro.src} alt={livro.nome} />
+        {livros.map((livro, index) => (
+          <img key={index} src={livro.src} alt={livro.nome} />
         ))}
       </NewBookContainer>
 
